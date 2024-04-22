@@ -1,0 +1,14 @@
+{
+  "name": "inquirer-toggle",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skarahoda/inquirer-toggle"
+  },
+  "author": {
+    "name": "Sertac Karahoda",
+    "email": "sertackarahoda@gmail.com",
+    "url": "https://github.com/skarahoda"
+  }
+}
