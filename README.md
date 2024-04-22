@@ -1,6 +1,6 @@
-# `@inquirer/confirm`
+# `inquirer-toggle`
 
-Simple interactive command line prompt to gather boolean input from users.
+Simple interactive command line prompt to gather boolean input from users. Inspired by [prompts](https://www.npmjs.com/package/prompts#togglemessage-initial-active-inactive).
 
 ![Toggle prompt](example_output.png)
 
