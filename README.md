@@ -31,7 +31,7 @@ const answer = await toggle({ message: 'Continue?' });
 | Property              | Type                 | Required | Default            | Description                                              |
 |-----------------------|----------------------| -------- |--------------------|----------------------------------------------------------|
 | message               | `string`             | yes      | -                  | The question to be displayed to the user.                |
-| default               | `boolean`            | no       | `false`            | The default answer when the user doesn't provide one.    |
+| default               | `boolean`            | no       | `true`            | The default answer when the user doesn't provide one.    |
 | theme                 | `Object`             | no       | -                  | An object to customize the look of the prompt.           |
 | theme.active          | `string`             | no       | `"yes"`            | The text to display for the active part of the toggle.   |
 | theme.inactive        | `string`             | no       | `"no"`             | The text to display for the inactive part of the toggle. |
