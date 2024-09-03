@@ -1,6 +1,5 @@
 import { type KeypressEvent, isDownKey, isUpKey, type Theme, useKeypress, useState, isEnterKey } from "@inquirer/core";
 import { createPrompt, usePrefix, makeTheme } from "@inquirer/core";
-import ansiEscapes from "ansi-escapes";
 
 type InquirerToggleConfig = {
     message: string;
@@ -17,23 +16,22 @@ type InquirerToggleConfig = {
     };
 };
 
-function isLeftKey(
-    key: KeypressEvent,
-): boolean {
+function isLeftKey(key: KeypressEvent): boolean {
     return key.name === "left";
 }
 
-function isRightKey(
-    key: KeypressEvent,
-): boolean {
+function isRightKey(key: KeypressEvent): boolean {
     return key.name === "right";
 }
 
-export default createPrompt<boolean, InquirerToggleConfig>(
+const cPrompt = createPrompt<boolean, InquirerToggleConfig>(
     (config, done) => {
-        const theme = makeTheme({ active: "yes", inactive: "no" }, config.theme);
+        const theme = makeTheme({
+            active: "yes",
+            inactive: "no"
+        }, config.theme);
         const prefix = usePrefix({ theme });
-        const [value, setValue] = useState(config.default ?? false);
+        const [value, setValue] = useState(config.default ?? true);
         const [isDone, setIsDone] = useState(false);
 
         useKeypress((key) => {
@@ -50,8 +48,12 @@ export default createPrompt<boolean, InquirerToggleConfig>(
             return `${prefix} ${message} ${theme.style.answer(value ? theme.active : theme.inactive)}`;
         }
 
-        const activeMessage = value ? theme.style.highlight(theme.active) : theme.active;
-        const inactiveMessage = value ? theme.inactive : theme.style.highlight(theme.inactive);
-        return `${prefix} ${message} ${inactiveMessage} / ${activeMessage}${ansiEscapes.cursorHide}`;
+        const inactiveMessage = value ? theme.style.highlight(theme.active) : theme.active;
+        const activeMessage = value ? theme.inactive : theme.style.highlight(theme.inactive);
+        return `${prefix} ${message} ${inactiveMessage} / ${activeMessage}${'\u001B[' + '?25l'}`;
     }
-);
+)
+
+export default function toggle(json: any): any {
+    return cPrompt(json);
+}
