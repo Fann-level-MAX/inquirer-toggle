@@ -1,7 +1,10 @@
 {
   "name": "inquirer-toggle",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/skarahoda/inquirer-toggle.git"
@@ -14,17 +17,15 @@
   "files": [
     "dist/*"
   ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "npm run clean && tsc"
+    "build": "node build.js"
   },
   "devDependencies": {
-    "@tsconfig/recommended": "^1.0.6",
+    "@tsconfig/recommended": "^1.0.7",
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@inquirer/core": "^8.0.1"
+    "@inquirer/core": "^8.2.4"
   }
 }
