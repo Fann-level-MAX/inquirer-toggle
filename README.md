@@ -15,7 +15,13 @@ yarn add inquirer-toggle
 # Usage
 
 ```js
-import toggle from 'inquirer-toggle';
+import { toggle } from 'inquirer-toggle';
+
+const answer = await toggle({ message: 'Continue?' });
+```
+or
+```js
+const { toggle } = require('inquirer-toggle');
 
 const answer = await toggle({ message: 'Continue?' });
 ```
